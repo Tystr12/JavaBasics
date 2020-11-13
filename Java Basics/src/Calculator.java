@@ -1,3 +1,5 @@
+import java.io.Console;
+import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -5,6 +7,7 @@ public class Calculator {
 	// creating new scanner and format methods for the calculator
 	Scanner scan = new Scanner(System.in);
 	DecimalFormat format = new DecimalFormat("#.000");
+	Console con = System.console();
 	// declaring variables of the calculator, variable of numbers i can use to make a calculator
 	// adding variables
 	public static double addnum1;
@@ -24,6 +27,8 @@ public class Calculator {
 	public static double divResult;
 	public static String divResultShort;
 	public static String shorten;
+	
+	public static Reader contains;
 	
 	// Creating an add method where it takes input from the console and prints result of the operation.
 	public void add() {
@@ -85,13 +90,7 @@ public class Calculator {
 	
 		System.out.println("The result of the division is: " + divnum1 + " " + "/" + " " + divnum2 + " " + "=" + " " + divResult);
 	}
-	
-	public void divShorten() {
-		
-		divResultShort = format.format(divResult);
-		
-		System.out.println("The shortened answer is: " + divResultShort);
-	}
+
 	// Ask user if they want to shorten their division answer to three decimal points...
 	// Future plans:: Make a scanner that reads the console to determine which method is being used and then ask to shorten that answer.
 	// If not I have to make a a shorten and askshorten method for every other operation which is a lot of unnecessary code.
@@ -104,7 +103,56 @@ public class Calculator {
 			System.out.println("^^Did not shorten answer...^^");
 			
 		}else if (shorten.equals("yes")) {
-			divShorten();
+			String divshorter = format.format(divResult);
+			System.out.println("The shortened answer is. " +divshorter);
+		}else {
+			System.out.println("Invalid input...");
+		}
+	}
+	
+	public void askMultiShorten() {
+		System.out.println("^^Would you like to shorten the answer to three decimal points? (yes/no)^^");
+		
+		shorten = scan.next();
+		
+		if (shorten.equals("no")) {
+			System.out.println("^^Did not shorten answer...^^");
+			
+		}else if (shorten.equals("yes")) {
+			String multiShorten = format.format(multiResult);
+			System.out.println("The shortened answer is: " + multiShorten);
+		}else {
+			System.out.println("Invalid input...");
+		}
+	}
+	
+	public void askAddShorten() {
+		System.out.println("^^Would you like to shorten the answer to three decimal points? (yes/no)^^");
+		
+		shorten = scan.next();
+		
+		if (shorten.equals("no")) {
+			System.out.println("^^Did not shorten answer...^^");
+			
+		}else if (shorten.equals("yes")) {
+			String addShorten = format.format(addResult);
+			System.out.println("The shortened answer is: " + addShorten);
+		}else {
+			System.out.println("Invalid input...");
+		}
+	}
+	
+	public void askSubShorten() {
+		System.out.println("^^Would you like to shorten the answer to three decimal points? (yes/no)^^");
+		
+		shorten = scan.next();
+		
+		if (shorten.equals("no")) {
+			System.out.println("^^Did not shorten answer...^^");
+			
+		}else if (shorten.equals("yes")) {
+			String subShorten = format.format(subResult);
+			System.out.println("The shortened answer is: " + subShorten);
 		}else {
 			System.out.println("Invalid input...");
 		}
@@ -118,9 +166,8 @@ public class Calculator {
 		
 		// Mess around with whatever methods you want below: 
 		a.divide();
-		
 		a.askDivShorten();
-
+		// Considering a redesign to JOptionPane, so that i can just have the user confirm what operation it is so i can shorten...
 		System.out.println("**End of calculator operations**");
 	}
 
