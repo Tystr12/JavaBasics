@@ -1,13 +1,15 @@
-import java.io.Console;
+
 import java.io.Reader;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+
+import javax.swing.JButton;
 
 public class Calculator {
 	// creating new scanner and format methods for the calculator
 	Scanner scan = new Scanner(System.in);
 	DecimalFormat format = new DecimalFormat("#.000");
-	Console con = System.console();
+	
 	// declaring variables of the calculator, variable of numbers i can use to make a calculator
 	// adding variables
 	public static double addnum1;
@@ -30,15 +32,19 @@ public class Calculator {
 	
 	public static Reader contains;
 	
+	public double base;
+	
+	public double power;
+	
 	// Creating an add method where it takes input from the console and prints result of the operation.
 	public void add() {
 		System.out.println("**Addition**");
 		
 		System.out.println("Enter your first value below:");
-		addnum1 = scan.nextInt();
+		addnum1 = scan.nextDouble();
 		
 		System.out.println("Enter your second value below:");
-		addnum2 = scan.nextInt();
+		addnum2 = scan.nextDouble();
 		
 		addResult = addnum1 + addnum2;
 		
@@ -51,10 +57,10 @@ public class Calculator {
 		System.out.println("**Subtraction**");
 		
 		System.out.println("Enter your first value below:");
-		subnum1 = scan.nextInt();
+		subnum1 = scan.nextDouble();
 		
 		System.out.println("Enter your first value below:");
-		subnum2 = scan.nextInt();
+		subnum2 = scan.nextDouble();
 		
 		subResult = subnum1 - subnum2;
 		
@@ -66,10 +72,10 @@ public class Calculator {
 		System.out.println("**Multiplication**");
 		
 		System.out.println("Enter your first value below:");
-		multinum1 = scan.nextInt();
+		multinum1 = scan.nextDouble();
 		
 		System.out.println("Enter your second value below:");
-		multinum2 = scan.nextInt();
+		multinum2 = scan.nextDouble();
 		
 		multiResult = multinum1 * multinum2;
 		
@@ -81,10 +87,10 @@ public class Calculator {
 		System.out.println("**Division**");
 		
 		System.out.println("Enter your first value below:");
-		divnum1 = scan.nextInt();
+		divnum1 = scan.nextDouble();
 		
 		System.out.println("Enter your second value below:");
-		divnum2 = scan.nextInt();
+		divnum2 = scan.nextDouble();
 		
 		divResult = divnum1 / divnum2;
 	
@@ -141,6 +147,15 @@ public class Calculator {
 			System.out.println("Invalid input...");
 		}
 	}
+ 
+	
+	public void pot(double base, double power) {
+		this.base=base;
+		
+		this.power=power;
+		
+		System.out.println(base + " " + "to the power of " + power + " = " + Math.pow(base, power));
+	}
 	
 	public void askSubShorten() {
 		System.out.println("^^Would you like to shorten the answer to three decimal points? (yes/no)^^");
@@ -156,19 +171,11 @@ public class Calculator {
 		}else {
 			System.out.println("Invalid input...");
 		}
+		
+	
+	
 	}
 
-	// Main method used so we can execute one of the methods above.
-	public static void main(String[] args) {
-		
-		// Creating a new instance of the object. Starting a new "Calculator" we can use.
-		Calculator a = new Calculator();
-		
-		// Mess around with whatever methods you want below: 
-		a.divide();
-		a.askDivShorten();
-		// Considering a redesign to JOptionPane, so that i can just have the user confirm what operation it is so i can shorten...
-		System.out.println("**End of calculator operations**");
-	}
+
 
 }
