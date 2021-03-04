@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-import java.io.*; 
 import java.util.*;
 
 
@@ -69,6 +68,7 @@ public class Iterate<T> {
 		}
 
 		System.out.println(same);
+		System.out.println("Hei");
 		
 		
 		
