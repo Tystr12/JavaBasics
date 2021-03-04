@@ -5,6 +5,8 @@ public class ComTest {
 		System.out.println("Github works now.... I think.");
 		int i = 1 + 3;
 		System.out.println(i);
+		
+		System.out.println("It is fixed!!!!!!!");
 	}
 		
 }
