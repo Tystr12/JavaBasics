@@ -19,6 +19,8 @@ public class Iterate<T> {
 		
 		ArrayList<Object> fin = new ArrayList<Object>();
 		
+		ArrayList<Object> differance = new ArrayList<Object>();
+		
 		asd2.add("apple");
 		asd2.add("banana");
 		asd2.add("siffen");
@@ -36,17 +38,19 @@ public class Iterate<T> {
 		 * while (it.hasNext()) { System.out.println(it.next()); }
 		 */
 		
-		
+		// initiating the loop
 		while(it.hasNext() && it2.hasNext()) {
 			Object one = it.next();
 			Object two = it2.next();
 			
-			if(one.equals(two)) {
-				fin.add(one);
-				System.out.println(fin);
-			} else if (!one.equals(two)) {
-				System.out.println(one);
-				System.out.println(two);
+			// checks if the two iterators are different, if so
+			// adds the differences betweent the arraylists to a new arraylist 
+				if (!one.equals(two)) {
+				differance.add(one);
+				differance.add(two);
+				System.out.println(differance);
+				System.out.println(differance.getClass());
+				System.out.println(differance.size());
 			}
 		}
 		
@@ -56,6 +60,7 @@ public class Iterate<T> {
 		
 		Iterator it3 = asd.iterator();
 		Iterator it4 = asd2.iterator();
+		
 		
 		// Testing if two iterators are equal.. Useful stuff
 		boolean same = true;
@@ -68,10 +73,6 @@ public class Iterate<T> {
 		}
 
 		System.out.println(same);
-		System.out.println("Hei");
-		
-		
-		
 		
 
 	}
