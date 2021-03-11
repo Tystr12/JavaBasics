@@ -44,6 +44,7 @@ public class testMethod extends Person {
 				System.out.println(target.getPartnerStatus());
 				System.out.println(targetPartner.getPartnerStatus());
 				System.out.println("Members are no longer linked...");
+				System.out.println("### ALL DONE ###");
 			}
 		}
 
